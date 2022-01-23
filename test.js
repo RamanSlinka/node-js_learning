@@ -1,3 +1,8 @@
-const userName = 'fama';
-const sayHi = () => `hello, my name is ${userName}`;
-console.log(userName)
+const userName = 'Fama';
+const sayHi = (userName) => `hello, my name is ${userName}`;
+//console.log(sayHi(userName))
+
+module.exports ={
+    userName,
+    sayHi,
+}
