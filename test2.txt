@@ -1,2 +1,0 @@
-Hello everybody.
- My name is Roman and I'm a programmer. +New text
