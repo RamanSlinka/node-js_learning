@@ -1,5 +1,5 @@
 const express = require('express');
-const path = require('path')
+const path = require('path');
 
 const app = express();
 
@@ -9,45 +9,42 @@ const PORT = 3000;
 
 const createPath = (page) => path.resolve(__dirname, 'ejs-views', `${page}.ejs`);
 
-
 app.listen(PORT, (error) => {
     error ? console.log(error) : console.log(`listening port ${PORT}`);
 });
 
 app.get('/', (req, res) => {
-    res.render(createPath('index'))
+    const title = 'Home';
+    res.render(createPath('index'), { title });
 });
 
 app.get('/contacts', (req, res) => {
-    res.render(createPath('contacts'))
+    const title = 'Contacts';
+    const contacts = [
+        { name: 'Linkedin', link: "https://www.linkedin.com/in/raman-slinka/" },
+        { name: 'GitHub', link: 'http://github.com/RamanSlinka' },
+    ];
+    res.render(createPath('contacts'), { contacts, title });
 });
+
 app.get('/posts/:id', (req, res) => {
-    res.render(createPath('post'))
+    const title = 'Post';
+    res.render(createPath('post'), { title });
 });
-app.get('/posts/:id', (req, res) => {
-    res.sendFile(createPath('post'))
-});
+
 app.get('/posts', (req, res) => {
-    res.sendFile(createPath('posts'))
+    const title = 'Posts';
+    res.render(createPath('posts'), { title });
 });
+
 app.get('/add-post', (req, res) => {
-    res.sendFile(createPath('add-post'))
-});
-app.get('/posts', (req, res) => {
-    res.render(createPath('posts'))
-});
-app.get('/add-post', (req, res) => {
-    res.render(createPath('add-post'))
-});
-
-
-
-app.get('/about-us', (req, res) => {
-    res.redirect('/contacts')
+    const title = 'Add Post';
+    res.render(createPath('add-post'), { title });
 });
 
 app.use((req, res) => {
-    res.status(404)
-    res.render(createPath('error'))
+    const title = 'Error Page';
+    res
+        .status(404)
+        .render(createPath('error'), { title });
 });
-
