@@ -22,6 +22,7 @@ app.get('/contacts', (req, res) => {
     const title = 'Contacts';
     const contacts = [
         { name: 'Linkedin', link: "https://www.linkedin.com/in/raman-slinka/" },
+        { name: 'Linkedin', link: "https://www.linkedin.com/in/raman-slinka/" },
         { name: 'GitHub', link: 'http://github.com/RamanSlinka' },
     ];
     res.render(createPath('contacts'), { contacts, title });
