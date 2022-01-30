@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const morgan = require('morgan');
 
 const app = express();
 
@@ -13,6 +14,12 @@ app.listen(PORT, (error) => {
     error ? console.log(error) : console.log(`listening port ${PORT}`);
 });
 
+
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
+
+app.use(express.static('styles'));
+
+
 app.get('/', (req, res) => {
     const title = 'Home';
     res.render(createPath('index'), { title });
@@ -21,7 +28,6 @@ app.get('/', (req, res) => {
 app.get('/contacts', (req, res) => {
     const title = 'Contacts';
     const contacts = [
-        { name: 'Linkedin', link: "https://www.linkedin.com/in/raman-slinka/" },
         { name: 'Linkedin', link: "https://www.linkedin.com/in/raman-slinka/" },
         { name: 'GitHub', link: 'http://github.com/RamanSlinka' },
     ];
