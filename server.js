@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Post = require('./models/post');
 const Contact = require('./models/contact');
+const methodOverride = require('method-override')
 
 
 const app = express();
@@ -31,6 +32,8 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 app.use(express.urlencoded({extended: false}));
 
 app.use(express.static('styles'));
+
+app.use(methodOverride('_method'))
 
 
 app.get('/', (req, res) => {
@@ -60,6 +63,8 @@ app.get('/posts/:id', (req, res) => {
         });
 });
 
+
+
 app.delete('/posts/:id', (req, res) => {
     const title = 'Post';
     Post
@@ -72,6 +77,33 @@ app.delete('/posts/:id', (req, res) => {
             res.render(createPath('error'), {title: 'Error'})
         });
 });
+
+app.put('/edit/:id', (req, res) => {
+    const {title, author, text} = req.body;
+    const {id} = req.params;
+    Post
+        .findByIdAndUpdate(id,{title, author, text})
+        .then(result => {
+            res.redirect(`/posts/${id}`);
+        })
+        .catch((error) => {
+            console.log(error);
+            res.render(createPath('error'), {title: 'Error'})
+        });
+});
+
+app.get('/edit/:id', (req, res) => {
+    const title = 'Edit Post';
+    Post
+        .findById(req.params.id)
+        .then((post) => res.render(createPath('edit-post'), {post, title}))
+        .catch((error) => {
+            console.log(error);
+            res.render(createPath('error'), {title: 'Error'})
+        });
+});
+
+
 
 app.get('/posts', (req, res) => {
     const title = 'Posts';
