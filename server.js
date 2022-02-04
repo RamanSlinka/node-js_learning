@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const postRoutes = require('./routes/post-routes');
 const contactRoutes = require('./routes/contact-routes');
 const createPath = require('./helpers/create-path');
+const postApiRouting = require('./routes/api-post-routes');
 
 const app = express();
 
@@ -37,6 +38,7 @@ app.get('/', (req, res) => {
 
 app.use(postRoutes);
 app.use(contactRoutes);
+app.use(postApiRouting);
 
 app.use((req, res) => {
   const title = 'Error Page';
