@@ -12,6 +12,7 @@ const router = express.Router();
 // Get All Posts
 router.get('/api/posts', getPosts);
 // Add New Post
+// Add New Post
 router.post('/api/post/', addPost);
 // Get Post by ID
 router.get('/api/post/:id', getPost);
