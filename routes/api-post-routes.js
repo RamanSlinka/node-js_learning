@@ -15,6 +15,7 @@ router.get('/api/posts', getPosts);
 // Add New Post
 router.post('/api/post/', addPost);
 // Get Post by ID
+// Get Post by ID
 router.get('/api/post/:id', getPost);
 // Delete Post by ID
 router.delete('/api/post/:id', deletePost);
