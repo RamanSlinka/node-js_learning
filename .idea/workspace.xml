@@ -37,7 +37,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../portfolio" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../smart_home" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
@@ -61,6 +61,8 @@
       <workItem from="1644098243047" duration="7000" />
       <workItem from="1644098270697" duration="2000" />
       <workItem from="1644174755635" duration="14000" />
+      <workItem from="1644703163650" duration="84000" />
+      <workItem from="1644751151808" duration="17000" />
     </task>
     <task id="LOCAL-00001" summary="Added Router">
       <created>1643923559991</created>
@@ -90,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644098111923</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Created API">
+      <created>1644703206496</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1644703206496</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
